@@ -1,5 +1,5 @@
 <template>
-<div v-if="$route.name === 'communes' && data.length > 0">
+<div v-if="$route.name === 'communes' && data.length != null || data.length > 0">
   <div v-if="data.length">
     <div>
       Nous avons trouvé {{ data.length > 1 ? data.length + " resultats." : data.length + " résultat."}}
@@ -21,18 +21,20 @@
       </ion-card-content>
     </ion-col>
   </ion-card>
-</div>
-<!-- Juste un problème quand j'arrive dans le composant, l'API renvoie un status 200 avec un tableau vide
+  <!-- Juste un problème quand j'arrive dans le composant, l'API renvoie un status 200 avec un tableau vide
 même quand on rentre un truc qui n'existe pas et j'ai pas trouvé comment le gérer a l'iinitialisation du composant quand on arrive dessus pour la première fois -->
-<div v-if="data.length === 0 || data === null">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-        Pas de résultat pour votre recherche, verifiez que ce que vous cherchez existe !
-      </ion-card-title>
-    </ion-card-header> 
-  </ion-card>
+  <div v-if="data.length === 0">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          Pas de résultat pour votre recherche, verifiez que ce que vous cherchez existe !
+        </ion-card-title>
+      </ion-card-header> 
+    </ion-card>
+  </div>
 </div>
+
+
 
 <div v-if="$route.name === 'departements'">
   <div v-if="departementData.length">Nous avons trouvé {{ departementData.length > 1 ? departementData.length + " resultats." : departementData.length + " résultat."}}</div>
