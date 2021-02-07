@@ -1,6 +1,7 @@
 # communes-ionic
+ - https://jules-communes.web.app/ (deployed with firebase)
  - It's an Ionic-vue application
- - Using : Ionic - vue - axios
+ - Using : Ionic - vue - axios -fireabse
 
 
 # What can you do ?
